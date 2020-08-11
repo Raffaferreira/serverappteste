@@ -108,7 +108,7 @@ namespace ApiTeste.Repository
                         DATA = pessoa.Data.Value,
                         IDADE = pessoa.Idade,
                         EMAIL = pessoa.Email,
-                        SEXO = pessoa.Sexo == "Masculino" ? 1 : 2,
+                        SEXO = pessoa.Sexo,
                         HABILIDADES = pessoa.Habilidades,
                         ATIVO = pessoa.Ativo ? 1 : 0
                     };
