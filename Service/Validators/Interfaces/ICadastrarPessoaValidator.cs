@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiTeste.Service.Validators.Interfaces
 {
-    public interface IIngressoValidator<T>
+    public interface ICadastrarPessoaValidator<T>
     {
         T _objeto { get; set; }
         bool IsValid { get; }

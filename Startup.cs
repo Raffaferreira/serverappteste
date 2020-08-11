@@ -16,6 +16,7 @@ namespace ApiTeste
 {
     public class Startup
     {
+        public readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         public Startup(IHostingEnvironment env)
@@ -46,7 +47,20 @@ namespace ApiTeste
             services.AddRepositories();
             services.AddServices();
             services.AddTokenConfiguration();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);          
+
+            string[] origins = new string[] { "http://localhost:4200", "http://localhost:4300" };
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                   builder =>
+                   {
+                       builder.WithOrigins(origins)
+                              .AllowAnyMethod()
+                              .AllowAnyHeader()
+                              .AllowCredentials();
+                   });
+            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -74,6 +88,7 @@ namespace ApiTeste
 
             app.UseAuthentication();
             app.UseHttpsRedirection();
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseMvc();
         }
     }

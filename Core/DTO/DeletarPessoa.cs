@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ApiTeste.Core.DTO
 {
-    public class ListaIngressos : IRequest<Response>
+    public class DeletarPessoa : IRequest<Response>
     {
-        public int Lote { get; set; }
+        public int CodigoPessoa { get; set; }
     }
 }

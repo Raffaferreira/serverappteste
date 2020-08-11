@@ -11,7 +11,7 @@ namespace ApiTeste.Repository.Startup
     {
         public static void AddRepositories(this IServiceCollection services)
         {
-            services.AddTransient<IVendasRepository, VendasRepository>();
+            services.AddTransient<IPessoasRepository, PessoasRepository>();
         }
     }
 }

@@ -5,12 +5,6 @@ C:\Users\rafaelferreira\source\repos\ApiTeste\bin\Debug\netcoreapp2.2\ApiTeste.d
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\Debug\netcoreapp2.2\ApiTeste.runtimeconfig.json
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\Debug\netcoreapp2.2\ApiTeste.runtimeconfig.dev.json
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\Debug\netcoreapp2.2\ApiTeste.dll
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.csprojAssemblyReference.cache
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.AssemblyInfoInputs.cache
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.AssemblyInfo.cs
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.csproj.CoreCompileInputs.cache
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.RazorAssemblyInfo.cache
-C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.RazorAssemblyInfo.cs
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\appsettings.Development.json
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\appsettings.json
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\Properties\launchSettings.json
@@ -20,7 +14,13 @@ C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\ApiTeste.runtime
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\ApiTeste.dll
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\ApiTeste.pdb
 C:\Users\rafaelferreira\source\repos\ApiTeste\bin\netcoreapp2.2\ApiTeste.xml
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.AssemblyInfoInputs.cache
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.AssemblyInfo.cs
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.csproj.CoreCompileInputs.cache
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.RazorAssemblyInfo.cache
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.RazorAssemblyInfo.cs
 C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.RazorTargetAssemblyInfo.cache
 C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.dll
 C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.pdb
 C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.genruntimeconfig.cache
+C:\Users\rafaelferreira\source\repos\ApiTeste\obj\Debug\netcoreapp2.2\ApiTeste.csprojAssemblyReference.cache

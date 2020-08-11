@@ -1,4 +1,5 @@
-﻿using ApiTeste.Service.Interface;
+﻿using ApiTeste.Handlers;
+using ApiTeste.Service.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace ApiTeste.Service.Startup
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddTransient<IVendasService, VendasService>();
+            services.AddTransient<IPessoasService, PessoasService>();
+            services.AddTransient<IResponseLayer, ResponseLayer>();
         }
     }
 }

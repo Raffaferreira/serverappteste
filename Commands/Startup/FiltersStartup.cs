@@ -16,7 +16,7 @@ namespace ApiTeste.Commands.Startup
         {
             services.AddMvc().AddFluentValidation();
 
-            services.AddTransient<IValidator<Ingresso>, IngressoCommand>();
+            services.AddTransient<IValidator<Pessoa>, PessoaCommand>();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiTeste.Core.DTO;
+using ApiTeste.Repository.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,20 +11,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiTeste.Controllers
 {
     [Produces("application/json")]
-    [Route("api/v1/vendas/")]
+    [Route("api/v1/pessoas/")]
     [ApiController]
-    public class VendasController : ControllerBase
+    public class PessoasController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public VendasController(IMediator mediator)
+        public PessoasController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        [Authorize("Bearer")]
-        [HttpPost("geraringresso")]
-        public async Task<IActionResult> GerarIngreso([FromBody] Ingresso request)
+        [HttpPost("cadastrar")]
+        [ProducesResponseType(typeof(PessoaModel), 200)]
+        public async Task<IActionResult> CadastrarPessoa([FromBody] Pessoa request)
         {
             var response = await _mediator.Send(request).ConfigureAwait(false);
 
@@ -35,9 +36,26 @@ namespace ApiTeste.Controllers
             return Ok(response.Result);
         }
 
-        [Authorize("Bearer")]
-        [HttpGet("ingressos")]
-        public async Task<IActionResult> GetIngressos([FromQuery] ListaIngressos request)
+        [HttpDelete("deletar/{codigoPessoa:int}")]
+        [ProducesResponseType(typeof(bool), 200)]
+        public async Task<IActionResult> DeletarPessoa(int codigoPessoa)
+        {
+            DeletarPessoa request = new DeletarPessoa();
+            request.CodigoPessoa = codigoPessoa;
+
+            var response = await _mediator.Send(request).ConfigureAwait(false);
+
+            if (response.Errors.Any())
+            {
+                return BadRequest(response.CustomErrors);
+            }
+
+            return Ok(response.Result);
+        }
+
+        [HttpPut("editar")]
+        [ProducesResponseType(typeof(bool), 200)]
+        public async Task<IActionResult> EditarDadosPessoa([FromBody] AtualizarPessoa request)
         {
             var response = await _mediator.Send(request).ConfigureAwait(false);
 
@@ -49,38 +67,12 @@ namespace ApiTeste.Controllers
             return Ok(response.Result);
         }
 
-        [Authorize("Bearer", Roles = "usr_sys, usr_normal, usr_admin")]
-        [HttpPost("validatar/ingresso")]
-        public async Task<IActionResult> ValidarIngressoUsuario([FromBody] Ingresso request)
+        [HttpGet("getpessoas")]
+        [ProducesResponseType(typeof(List<PessoaModel>), 200)]
+        public async Task<IActionResult> ListaDePessoas()
         {
-            var response = await _mediator.Send(request).ConfigureAwait(false);
+            GetPessoas request = new GetPessoas();
 
-            if (response.Errors.Any())
-            {
-                return BadRequest(response.CustomErrors);
-            }
-
-            return Ok(response.Result);
-        }
-
-        [Authorize("Bearer", Roles = "usr_sys, usr_normal, usr_admin")]
-        [HttpPut("atualizar/ingresso")]
-        public async Task<IActionResult> AtualizarInformacoesDoIngresso([FromBody] Ingresso request)
-        {
-            var response = await _mediator.Send(request).ConfigureAwait(false);
-
-            if (response.Errors.Any())
-            {
-                return BadRequest(response.CustomErrors);
-            }
-
-            return Ok(response.Result);
-        }
-
-        [Authorize("Bearer", Roles = "usr_sys, usr_normal, usr_admin")]
-        [HttpGet("locais")]
-        public async Task<IActionResult> PostosDeVendasFisico([FromBody] Ingresso request)
-        {
             var response = await _mediator.Send(request).ConfigureAwait(false);
 
             if (response.Errors.Any())

@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace ApiTeste.Handlers.Controllers.Vendas
 {
-    public class VenderIngressoHandler : ResponseError, IRequestHandler<Ingresso, Response>
+    public class CadastrarPessoaHandler : ResponseError, IRequestHandler<Pessoa, Response>
     {
-        public readonly IVendasService _vendasService;
+        public readonly IPessoasService _pessoaService;
 
-        public VenderIngressoHandler(IVendasService vendasService)
+        public CadastrarPessoaHandler(IPessoasService pessoaService)
         {
-            _vendasService = vendasService;
+            _pessoaService = pessoaService;
         }
 
-        public async Task<Response> Handle(Ingresso request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(Pessoa request, CancellationToken cancellationToken)
         {
             List<Message> validations;
             Message customMessage;
@@ -29,10 +29,10 @@ namespace ApiTeste.Handlers.Controllers.Vendas
 
             try
             {
-                IResponseLayer response = await _vendasService.VenderIngresso(request);
+                IResponseLayer response = await _pessoaService.CadastrarPessoa(request);
                 customMessage = Convert.ChangeType(response.Result, typeof(Message));
 
-                if (response.HasErrors)
+                if (!response.HasErrors)
                 {
                     message = customMessage.Result;
                 }
@@ -57,7 +57,7 @@ namespace ApiTeste.Handlers.Controllers.Vendas
                 return await Errors(new Message(HttpStatusCode.InternalServerError, ex.Message));
             }
 
-            return new Response(customMessage.Result, customMessage.StatusCode);
+            return new Response(message, customMessage.StatusCode);
         }
     }
 }

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace ApiTeste.Service.Validators
 {
-    public class IngressoValidator : MessageBase, IIngressoValidator<Ingresso>, IDisposable
+    public class CadastrarPessoaValidator : MessageBase, ICadastrarPessoaValidator<Pessoa>, IDisposable
     {
-        public Ingresso _objeto { get; set; }
+        public bool disposed { get; set; }
+        public Pessoa _objeto { get; set; }
         public bool IsValid
         {
             get
@@ -19,19 +20,26 @@ namespace ApiTeste.Service.Validators
             }
         }
 
-        public IngressoValidator(Ingresso ingresso)
+        public CadastrarPessoaValidator(Pessoa ingresso)
         {
             _objeto = ingresso;
+            ExecuteValidate();
         }
 
         public void ExecuteValidate()
         {
-            throw new NotImplementedException();
+            _messages = new List<string>();
+            _verifications = new List<bool>();
+
+            if (_objeto.Idade < 18)
+            {
+                AddMessage("Só é permitido cadastrar para maior de 18 anos", true);
+            }
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
-        }      
+            GC.SuppressFinalize(this);
+        }
     }
 }

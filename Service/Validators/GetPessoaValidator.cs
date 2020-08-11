@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ApiTeste.Service.Validators
 {
-    public class GetIngressosValidator : MessageBase, IGetIngressosValidator<ListaIngressos>, IDisposable
+    public class GetPessoaValidator : MessageBase, IGetPessoaValidator<Pessoa>, IDisposable
     {
-        public ListaIngressos _objeto { get; set; }
+        public Pessoa _objeto { get; set; }
         public bool IsValid
         {
             get
@@ -19,7 +19,7 @@ namespace ApiTeste.Service.Validators
             }
         }
 
-        public GetIngressosValidator(ListaIngressos listaIngressos)
+        public GetPessoaValidator(Pessoa listaIngressos)
         {
             _objeto = listaIngressos;
         }
